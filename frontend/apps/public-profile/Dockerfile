@@ -3,11 +3,12 @@ RUN corepack enable
 
 WORKDIR /app
 
-COPY package.json pnpm-lock.yaml pnpm-workspace.yaml tsconfig.json turbo.json ./COPY packages ./packages
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml tsconfig.json turbo.json ./
+COPY packages ./packages
 COPY apps/public-profile .apps/public-profile
 
-RUN pnpm install 
-RUN pnpm --filter @discboxd/public-profile
+RUN pnpm install --frozen-lockfile
+RUN pnpm --filter @discboxd/public-profile build
 
 EXPOSE 3002
 CMD ["pnpm", "--filter", "@discboxd/public-profile", "start"]
