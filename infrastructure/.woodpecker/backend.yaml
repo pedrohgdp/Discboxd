@@ -1,0 +1,23 @@
+when:
+  event: [push, pull_request]
+
+steps:
+  git-info:
+    image: alpine/git
+    commands:
+      - echo "GIT INFO - Informações do commit"
+      - echo "Evento - $CI_PIPELINE_EVENT"
+      # Somente o commit e o evento por que so eu trabalho no projeto
+      - echo "Commit - $CI_COMMIT_SHA"
+
+  install-deps:
+    image: maven:3.9.5-eclipse-temurin-17-alpine
+    commands:
+      - echo "INSTALL - Instalando dependencias maven"
+      - mvn dependency:go-offline -B
+
+  lint-compile:
+    image: maven:3.9.5-eclipse-temurin-17-alpine
+    commands:
+      - echo "LINT - Rodando lint"
+      - mvn clean compile -B

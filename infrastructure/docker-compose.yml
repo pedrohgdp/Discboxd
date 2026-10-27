@@ -3,7 +3,7 @@ version: "3.8"
 services:
   postgres:
     image: postgres:17
-    restart: always7
+    restart: always
     container_name: discboxd_postgres
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
@@ -12,50 +12,86 @@ services:
     ports:
       - "5432:5432"
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d meu_banco"]
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d ${POSTGRES_DB}"]
       interval: 5s
       timeout: 5s
       retries: 5
 
-    backend:
-      build:
-        context: ../backend
-        dockerfile: ./Dockerfile
-      container_name: discboxd_backend
-      restart: always
-      ports:
-        - "3333:3333"
-      env_file:
-        - ../backend/.env
-      depends_on:
-        postgres:
-          condition: service_healthy
+  backend:
+    build:
+      context: ../backend
+      dockerfile: ./Dockerfile
+    container_name: discboxd_backend
+    restart: always
+    ports:
+      - "3333:3333"
+    env_file:
+      - ../backend/.env
+    depends_on:
+      postgres:
+        condition: service_healthy
 
-    public-profile:
-      build:
-        context: ../frontend/apps/public-profile
-        dockerfile: ./Dockerfile
-      container_name: discboxd_public_profile
-      restart: always
-      ports:
-        - "3002:3002"
+  public-profile:
+    build:
+      context: ../frontend
+      dockerfile: apps/public-profile/Dockerfile
+    container_name: discboxd_public_profile
+    restart: always
+    ports:
+      - "3002:3002"
 
-    private-profile:
-      build:
-        context: ../frontend/apps/private-profile
-        dockerfile: ./Dockerfile
-      container_name: discboxd_private_profile
-      restart: always
-      ports:
-        - "3001: 3001"
+  private-profile:
+    build:
+      context: ../frontend
+      dockerfile: apps/private-profile/Dockerfile
+    container_name: discboxd_private_profile
+    restart: always
+    ports:
+      - "3001:3001"
   
-    main:
-      build:
-        context: ../frontend/apps/main
-        dockerfile: ./Dockerfile
-      container_name: discboxd_frontend_main
-      restart: aways
-      ports:
-        - "3000:3000"
+  main-frontend:
+    build:
+      context: ../frontend
+      dockerfile: apps/main/Dockerfile
+    container_name: discboxd_frontend_main
+    restart: always
+    ports:
+      - "3000:3000"
+    
+  woodpecker-server:
+    image: woodpeckerci/woodpecker-server:v3
+    restart: always
+    ports:
+      - 8000:8000
+    networks:
+      - woodpecker
+    # DEFINE COMO UM PONTEIRO, SERA SALVO UM
+    # ARQUIVO NESSA PASTA NO PC E NO DOCKER, MAS A 
+    # PASTA DO DOCKER E DO PC É QUASE A MESMA EM MEMORIA
+    volumes:
+      - ./woodpecker:/var/lib/woodpecker/
+    environment:
+      - WOODPECKER_OPEN=true
+      - WOODPECKER_ADMIN=${WOODPECKER_ADMIN}
+      - WOODPECKER_HOST=http://localhost:8000
+      - WOODPECKER_GITHUB=true
+      - WOODPECKER_GITHUB_CLIENT=${WOODPECKER_GITHUB_CLIENT}
+      - WOODPECKER_GITHUB_SECRET=${WOODPECKER_GITHUB_SECRET}
+      - WOODPECKER_AGENT_SECRET=${WOODPECKER_AGENT_SECRET}
+    
+  woodpecker-agent:
+    depends_on:
+      - woodpecker-server
+    image: woodpeckerci/woodpecker-agent:v3
+    networks:
+      - woodpecker
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - WOODPECKER_SERVER=woodpecker-server:9000
+      - WOODPECKER_AGENT_SECRET=${WOODPECKER_AGENT_SECRET}
+      - WOODPECKER_MAX_WORKFLOWS=2
 
+networks:
+  woodpecker:
 

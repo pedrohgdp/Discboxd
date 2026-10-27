@@ -1,0 +1,28 @@
+when:
+  event: [push, pull_request]
+
+steps:
+    git-info:
+      image: alpine/git
+      commands:
+        - echo "GIT INFO - Informacoes do Commit"
+        - echo "Evento - $CI_PIPELINE_EVENT"
+        - echo "Commit - $CI_COMMIT_SHA"
+        - git status
+        - git log -1 --oneline
+
+    install_deps:
+      image: node:20-alpine
+      commands:
+        - cd frontend
+        - corepack enable
+        - pnpm install --frozen-lockfile
+    
+    lint:
+      image: node:20-alpine
+      commands:
+        - cd frontend
+        - corepack enable
+        - pnpm install --frozen-lockfile
+        - pnpm lint
+
