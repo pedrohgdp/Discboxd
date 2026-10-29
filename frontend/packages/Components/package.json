@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "exports": {
-    "./*": "./src/*.tsx"
+    "./*": "./src/*.tsx",
+    "./style.css": "./style.css"
   },
   "peerDependencies": {
     "react": "^19.0.0",
@@ -13,5 +14,8 @@
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "react-native": "^0.88.0"
   }
 }
