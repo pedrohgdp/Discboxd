@@ -8,22 +8,22 @@
 
     // Para codar
     "dev":{
-	"cache": false,
-	"persistent": true
+      "cache": false,
+      "persistent": true
     },
 
-    // lint
+      // lint
     "lint": {
-	"dependsOn": ["^lint"]
+      "dependsOn": ["^lint"]
     },
 
     // Verificacao tipo
-    "check-types": {
+  "check-types": {
       "dependsOn": ["^build"]
     },
 
     "clean": {
-	"cache": false
+      "cache": false
     }
   }
 }
