@@ -13,7 +13,7 @@ export default function Home() {
       <div className="flex min-h-screen pt-[50px]">
 
         <aside className="fixed left-0 top-[70px] h-full">
-          <SideBar />
+          <SideBar isMain={true} isSettings={false} isPrivateProfile={false} />
         </aside>
 
         <main className="flex flex-1 flex-col items-center p-6">

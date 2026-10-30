@@ -1,11 +1,17 @@
-export default function SideBar() {
+type page = {
+    isMain: boolean
+    isPrivateProfile: boolean
+    isSettings: boolean
+}
+
+export default function SideBar( {isMain, isPrivateProfile, isSettings }: page) {
     return (
         <aside className="flex h-full w-55 flex-col border-r border-slate-700/50 bg-[#0F172A] px-4 py-5">
 
             <nav className="flex flex-col gap-2">
                 <a
-                    href="#"
-                    className="flex items-center gap-3 rounded-xl bg-indigo-500/15 px-4 py-3 text-sm font-medium text-indigo-400 transition-colors hover:bg-indigo-500/20"
+                    href="http://localhost:3000"
+                    className={`flex items-center gap-3 rounded-xl ${isMain ? "bg-indigo-500/15" : "bg-[#0F172A]"}  px-4 py-3 text-sm font-medium text-indigo-400 transition-colors hover:bg-indigo-500/20`}
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -26,8 +32,8 @@ export default function SideBar() {
                 </a>
 
                 <a
-                    href="#"
-                    className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-slate-400 transition-colors hover:bg-slate-800 hover:text-white"
+                    href="http://localhost:3001"
+                    className={`${isPrivateProfile ? "bg-indigo-500/15" : "bg-[#0F172A]"} flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-slate-400 transition-colors hover:bg-slate-800 hover:text-white`}
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -48,7 +54,7 @@ export default function SideBar() {
 
                 <a
                     href="#"
-                    className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-slate-400 transition-colors hover:bg-slate-800 hover:text-white"
+                    className={`${isSettings ? "bg-indigo-500/15" : "bg-[#0F172A]"} flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-slate-400 transition-colors hover:bg-slate-800 hover:text-white`}
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
