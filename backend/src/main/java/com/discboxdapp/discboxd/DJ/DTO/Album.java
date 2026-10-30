@@ -1,4 +1,4 @@
-package com.discboxdapp.discboxd.DJ.model;
+package com.discboxdapp.discboxd.DJ.DTO;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -10,27 +10,14 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
-@Entity
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
 public class Album {
-    @Id
-    @GeneratedValue
-    private long id;
-
-    @Column(unique = true, nullable = false)
     private String spotifyAlbumId;
 
-    @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
     private String artistName;
 
-    @Column(nullable = false)
     private LocalDate releaseDate;
 
-    @Column(nullable = false)
     private String coverUrl;
 }
