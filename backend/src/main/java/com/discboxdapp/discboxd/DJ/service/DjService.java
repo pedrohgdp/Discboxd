@@ -33,8 +33,11 @@ public class DjService {
                                                 .header("Authorization", "Bearer " + token.getAccess_token())
                                                 .retrieve()
                                                 .body(SpotifyResponseDTO.class);
-        
+
         List<AlbumDTO> albuns = response.getAlbums().getItems();
+        for (AlbumDTO albumDTO : albuns) {
+            System.out.println(albumDTO.toString());
+        }
         
         return albuns;
     }

@@ -1,8 +1,8 @@
 package com.discboxdapp.discboxd.DJ.DTO;
 
-import lombok.Getter;
+import lombok.Data;
 
-@Getter 
+@Data 
 public class SpotifyResponseDTO {
     private AlbumResponseDTO albums;
 }
