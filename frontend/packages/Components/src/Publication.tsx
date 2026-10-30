@@ -1,17 +1,23 @@
 type publicationVariables = {
     imgSource: string
+    text: String
+    albumName: String
+    note: number
 }
 
-export default function Publication( { imgSource } : publicationVariables){
+export default function Publication( { imgSource, text, albumName, note } : publicationVariables){
 	return (
-
-        <div className="bg-[#0F172c] h-40 w-300 p-2 m-2 rounded-lg flex items-start gap-2">
-            <img src={imgSource} className="w-[120px] h-[120px]rounded-lg object-cover" />
-            <div className="flex flex-col gap-2">
-                <h3>Jonh Lennon - Double Fantasy</h3>
-                <p>Nota: ★ ★ ★ ⯪ ☆</p>
-                <p>Não me leve a mal, é de fato um bom album, mas não é a melhor coisa que Lennon fez.</p>
+        <div className="h-40 w-200 pl-2 pt-2">
+            <div className="flex items-start gap-2">
+                <img src={imgSource} className="w-[150px] h-[150px] shrink-0" />
+                <div className="flex min-w0 flex-col flex-1 gap-2">
+                    <div><h3>Jonh Lennon - Double Fantasy</h3></div>
+                    <p>Nota: ★ ★ ★ ⯪ ☆</p>
+                    <p className="[overflow-wrap:anywhere]">text</p>
+                </div>
             </div>
+
+            <div className="w-full h-[1px] bg-white my-4 opacity-20" aria-hidden="true" />
         </div>
     );
 }
