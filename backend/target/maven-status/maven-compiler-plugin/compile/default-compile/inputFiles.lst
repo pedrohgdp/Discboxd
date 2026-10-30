@@ -1,1 +1,9 @@
+/home/pedrohgdp/Projects/Discboxd/backend/src/main/java/com/discboxdapp/discboxd/DJ/DTO/AlbumDTO.java
+/home/pedrohgdp/Projects/Discboxd/backend/src/main/java/com/discboxdapp/discboxd/DJ/DTO/AlbumResponseDTO.java
+/home/pedrohgdp/Projects/Discboxd/backend/src/main/java/com/discboxdapp/discboxd/DJ/DTO/ImagesDTO.java
+/home/pedrohgdp/Projects/Discboxd/backend/src/main/java/com/discboxdapp/discboxd/DJ/DTO/SpotifyResponseDTO.java
+/home/pedrohgdp/Projects/Discboxd/backend/src/main/java/com/discboxdapp/discboxd/DJ/DTO/TokenDTO.java
+/home/pedrohgdp/Projects/Discboxd/backend/src/main/java/com/discboxdapp/discboxd/DJ/controller/DjController.java
+/home/pedrohgdp/Projects/Discboxd/backend/src/main/java/com/discboxdapp/discboxd/DJ/service/DjService.java
+/home/pedrohgdp/Projects/Discboxd/backend/src/main/java/com/discboxdapp/discboxd/DJ/service/TokenService.java
 /home/pedrohgdp/Projects/Discboxd/backend/src/main/java/com/discboxdapp/discboxd/DiscboxdApplication.java
