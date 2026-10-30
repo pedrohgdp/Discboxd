@@ -1,16 +1,26 @@
-type publicationVariables = {
-    imgSource: string
-    text: String
-    albumName: String
+type publicationProps = {
+    imgAlbumSource: string
+    text: string
+    albumName: string
     note: number
+    imgUser: string
+    userName: string
 }
 
-export default function Publication({ imgSource, text, albumName, note }: publicationVariables) {
+export default function Publication({ imgAlbumSource, text, albumName, note, imgUser, userName }: publicationProps) {
     return (
         <article className="h-50 w-200 pl-2 pt-5">
+
+            <div className="flex items-center">
+                <img src={imgUser} className="rounded-full w-8 m-2" alt="User Photo"></img>
+                <p className="text-[14px] m-0.5">{userName}</p>
+                <p className="text-[20px] text-white/60 m-0.5">·</p>
+                <p className="text-[14px] text-white/60 m-0.5">30/10/2026</p>
+            </div>
+
             <div className="flex items-start gap-2">
                 
-                <img src={imgSource} 
+                <img src={imgAlbumSource} 
                     alt={`${albumName} cover`}
                     className="w-[150px] h-[150px] shrink-0 rounded-md object-cover shadow-lg shadow-black/30"
                 />
