@@ -9,7 +9,7 @@ type publicationProps = {
 
 export default function Publication({ imgAlbumSource, text, albumName, note, imgUser, userName }: publicationProps) {
     return (
-        <article className="h-50 w-200 pl-2 pt-5">
+        <article className="h-50 w-200 pt-5">
 
             <div className="flex items-center">
                 <img src={imgUser} className="rounded-full w-8 m-2" alt="User Photo"></img>
@@ -18,7 +18,7 @@ export default function Publication({ imgAlbumSource, text, albumName, note, img
                 <p className="text-[14px] text-white/60 m-0.5">30/10/2026</p>
             </div>
 
-            <div className="flex items-start gap-2">
+            <div className="flex items-start gap-2 pl-2">
                 
                 <img src={imgAlbumSource} 
                     alt={`${albumName} cover`}
