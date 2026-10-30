@@ -1,6 +1,6 @@
 package com.discboxdapp.discboxd.DJ.controller;
 
-import com.discboxdapp.discboxd.DJ.DTO.Album;
+import com.discboxdapp.discboxd.DJ.DTO.AlbumDTO;
 import com.discboxdapp.discboxd.DJ.service.DjService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,8 +20,8 @@ public class DjController {
     }
 
     @GetMapping("/albuns")
-    public ResponseEntity<List<Album>> searchAlbum(@RequestParam String q){
-        List<Album> result = djService.searchAlbum(q);
+    public ResponseEntity<List<AlbumDTO>> searchAlbum(@RequestParam String q){
+        List<AlbumDTO> result = djService.searchAlbum(q);
         return ResponseEntity.ok(result);
     }
 
