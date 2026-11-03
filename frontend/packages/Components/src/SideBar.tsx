@@ -11,7 +11,9 @@ export default function SideBar( {isMain, isPrivateProfile, isSettings }: page) 
             <nav className="flex flex-col gap-2">
                 <a
                     href="http://localhost:3000"
-                    className={`flex items-center gap-3 rounded-xl ${isMain ? "bg-indigo-500/15" : "bg-[#0F172A]"}  px-4 py-3 text-sm font-medium text-indigo-400 transition-colors hover:bg-indigo-500/20`}
+                    className={`flex items-center gap-3 rounded-xl ${isMain
+                        ? "bg-indigo-500/15 flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-slate-400 transition-colors hover:bg-slate-800 hover:text-white" 
+                        : "bg-[#0F172A] px-4 py-3 text-sm font-medium transition-colors hover:bg-indigo-500/20"}`}
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -33,7 +35,9 @@ export default function SideBar( {isMain, isPrivateProfile, isSettings }: page) 
 
                 <a
                     href="http://localhost:3001"
-                    className={`${isPrivateProfile ? "bg-indigo-500/15" : "bg-[#0F172A]"} flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-slate-400 transition-colors hover:bg-slate-800 hover:text-white`}
+                    className={`flex items-center gap-3 rounded-xl ${isPrivateProfile
+                        ? "bg-indigo-500/15 flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-slate-400 transition-colors hover:bg-slate-800 hover:text-white" 
+                        : "bg-[#0F172A] px-4 py-3 text-sm font-medium transition-colors hover:bg-indigo-500/20"}`}
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -54,7 +58,9 @@ export default function SideBar( {isMain, isPrivateProfile, isSettings }: page) 
 
                 <a
                     href="#"
-                    className={`${isSettings ? "bg-indigo-500/15" : "bg-[#0F172A]"} flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-slate-400 transition-colors hover:bg-slate-800 hover:text-white`}
+                    className={`flex items-center gap-3 rounded-xl ${isSettings
+                        ? "bg-indigo-500/15 flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-slate-400 transition-colors hover:bg-slate-800 hover:text-white" 
+                        : "bg-[#0F172A] px-4 py-3 text-sm font-medium transition-colors hover:bg-indigo-500/20"}`}
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
