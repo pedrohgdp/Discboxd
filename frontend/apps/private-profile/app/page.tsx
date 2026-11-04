@@ -2,6 +2,7 @@ import ProfileHeader from "@/Components/ProfileHeader";
 import Publication from "@discboxd/components/Publication";
 import SideBar from "@discboxd/components/SideBar";
 import TopBar from "@discboxd/components/TopBar";
+import Crop from "@/Components/Crop";
 
 export default function Home() {
   return (
@@ -26,6 +27,7 @@ export default function Home() {
               <Publication
                 imgAlbumSource="/ba.jpg"
               />
+
             </div>
 
           </div>
