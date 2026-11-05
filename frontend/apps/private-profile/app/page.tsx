@@ -13,17 +13,20 @@ export default function Home() {
       </div>
 
       <div className="flex min-h-screen pt-[50px]">
-        <aside className="fixed left-0 top-[70px] h-full">
+
+        <aside className="sticky top-[50px] h-[calc(100vh-50px)] shrink-0 pt-4">
           <SideBar isMain={false} isSettings={false} isPrivateProfile={true} />
         </aside>
 
-        <main className="ml-[54px] flex flex-1 flex-col items-center p-6">
+        <main className="flex min-w-0 flex-1 flex-col items-center p-6">
 
-          <div className="w-full max-w-4xl pt-4">
+          <div className="w-full max-w-4xl pt-2 pl-1">
           
-            <ProfileHeader></ProfileHeader>
+            <ProfileHeader profilePhotoUrl={undefined} bannerUrl={undefined} name="Pedro" bio="Music internet nerd!"></ProfileHeader>
             
-            <div className="mt-6">
+            {/*Publications*/}
+            <div className="flex flex-col items-center">
+
               <Publication
                 imgAlbumSource="/ba.jpg"
               />
