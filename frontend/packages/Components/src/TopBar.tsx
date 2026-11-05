@@ -1,12 +1,27 @@
+"use client"
+
 export default function TopBar() {
+    const mainPageLink = process.env.NEXT_PUBLIC_MAIN_URL;
+
     return (
         <header className="w-full bg-[#0F172A] px-full pt-4">
 
             <div className="flex h-12 items-center justify-between">
 
-                <span className="text-2xl font-bold tracking-tight text-white ml-10">
-                    Disc<span className="text-indigo-400">boxd</span>
-                </span>
+                <a onClick={() => {
+                    if(mainPageLink){
+                        window.location.href = mainPageLink;
+                    }
+                }}
+                    className="text-2xl font-bold tracking-tight text-white ml-10 cursor-default">
+                    Disc<span
+                        onClick={() => {
+                            if(mainPageLink){
+                                window.location.href = mainPageLink;
+                            }
+                        }}
+                        className="text-indigo-400">boxd</span>
+                </a>
 
                 <div className="flex mr-4 w-72 items-center gap-3 rounded-xl border border-slate-700 bg-slate-800 px-4 py-2.5 transition-all focus-within:border-indigo-400 focus-within:ring-1 focus-within:ring-indigo-400">
                     <svg
@@ -36,4 +51,8 @@ export default function TopBar() {
             <div className="mt-4 h-px w-full bg-white/10" />
         </header>
     );
+}
+
+function goToMainPage(mainPageLink: string){
+    window.location.href = mainPageLink
 }
