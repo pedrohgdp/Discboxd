@@ -52,7 +52,3 @@ export default function TopBar() {
         </header>
     );
 }
-
-function goToMainPage(mainPageLink: string){
-    window.location.href = mainPageLink
-}

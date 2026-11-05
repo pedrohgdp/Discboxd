@@ -25,7 +25,11 @@ export default function Home() {
             <ProfileHeader profilePhotoUrl={undefined} bannerUrl={undefined} name="Pedro" bio="Music internet nerd!"></ProfileHeader>
             
             {/*Publications*/}
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center gap-30">
+
+              <Publication
+                imgAlbumSource="/ba.jpg"
+              />
 
               <Publication
                 imgAlbumSource="/ba.jpg"
