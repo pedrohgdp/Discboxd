@@ -8,7 +8,7 @@ type ProfileProps = {
 
 export default function ProfileHeader( {bannerUrl, profilePhotoUrl, name, bio} : ProfileProps){
     return (
-        <div className="w-full flex justify-left">
+        <div className="w-full flex justify-left bg-slate-900/50 shadow-lg shadow-black/10">
             {/*BAR DIV SEPARATION*/}
             <div className="w-0.5 shrink-0 self-stretch bg-white/10" />
             <div className="w-full max-w-[1200px]">

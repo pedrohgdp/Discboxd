@@ -9,16 +9,18 @@ type publicationProps = {
 
 export default function Publication({ imgAlbumSource, text, albumName, note, imgUser, userName }: publicationProps) {
     return (
-        <article className="h-50 w-200 pt-5">
-
+        <article className="w-full h-auto flex flex-col max-w-2xl mt-5 p-4 border border-white/10 rounded-sm shadow-lg shadow-black/10">
+            
+            {/* Cabeçalho do usuário */}
             <div className="flex items-center">
-                <img src={imgUser} className="rounded-full w-8 m-2" alt="User Photo"></img>
+                <img src={imgUser} className="rounded-full w-8 h-8 m-2 object-cover" alt="User Photo" />
                 <p className="text-[14px] m-0.5">{userName}</p>
                 <p className="text-[20px] text-white/60 m-0.5">·</p>
                 <p className="text-[14px] text-white/60 m-0.5">30/10/2026</p>
             </div>
 
-            <div className="flex items-start gap-2 pl-2">
+            {/* Conteúdo principal */}
+            <div className="flex items-start gap-4 pl-2 min-h-[150px]">
                 
                 <img src={imgAlbumSource} 
                     alt={`${albumName} cover`}
@@ -33,10 +35,12 @@ export default function Publication({ imgAlbumSource, text, albumName, note, img
                     </div>
 
                     <p className="text-[15px] text-[#f5b301] mt-2">★ ★ ★ ⯪ ☆</p>
-                    <p className="mt-1 text-base text-white/80 [overflow-wrap:anywhere]">text marconha do tamanho do meu saco para ve se ele esta trocando de linha normal como é que eu quero que ele troca para poder ver se esta tudo certo. mais um pouc para textar eokqwodkqwo</p>
+                    <p className="mt-1 text-base text-white/80 break-words whitespace-pre-wrap">
+                        {text || "text marconha do tamanho do meu saco padasdasdqwjdiqwjdiqwjdiqwjdqwodjqwiodjwqiodjqwoidqwjdqwjidioqwdoiwqdjwqoidjqwdojiqwdoiqwjdqwjidqwiojdqwiodiowqdjiowqdoiwqdjiowqiora ve se ele esta trocando de linha normal como é que eu quero que ele troca para poder ver se esta tudo certo. mais um pouc para textar eokqwodkqwo"}
+                    </p>
                 </div>
             </div>
-            <div className="w-full h-[1px] bg-white my-4 opacity-20" aria-hidden="true" />
+        
         </article>
     );
 }

@@ -4,9 +4,9 @@ import SideBar from "@discboxd/components/SideBar";
 import TopBar from "@discboxd/components/TopBar";
 import Crop from "@/Components/Crop";
 
-export default function Home() {
+export default function PrivateProfile() {
   return (
-    <div className="min-h-screen bg-slate-800">
+    <div className="flex flex-col text-white min-h-screen bg-slate-800">
 
       <div className="fixed top-0 left-0 z-50 w-full">
         <TopBar />
@@ -25,12 +25,22 @@ export default function Home() {
             <ProfileHeader profilePhotoUrl={undefined} bannerUrl={undefined} name="Pedro" bio="Music internet nerd!"></ProfileHeader>
             
             {/*Publications*/}
-            <div className="flex flex-col items-center gap-30">
+            <div className="flex flex-col items-center">
 
               <Publication
                 imgAlbumSource="/ba.jpg"
               />
 
+              <Publication
+                imgAlbumSource="/ba.jpg"
+              />
+
+              
+              <Publication
+                imgAlbumSource="/ba.jpg"
+              />
+
+              
               <Publication
                 imgAlbumSource="/ba.jpg"
               />
