@@ -1,4 +1,8 @@
+"use client"
+
 import SettingsButton from "@discboxd/components/settingsButton"
+import ChangeProfile from "@/Components/ChangeProfile"
+import { useState } from "react";
 
 type ProfileProps = {
     bannerUrl?: string
@@ -8,8 +12,11 @@ type ProfileProps = {
 }
 
 export default function ProfileHeader( {bannerUrl, profilePhotoUrl, name, bio} : ProfileProps){
+    const [profileModalOpen, setModalProfileOpen] = useState(false);
+
     return (
         <div className="w-full flex justify-left bg-slate-900/50 shadow-lg shadow-black/10">
+
             {/*BAR DIV SEPARATION*/}
             <div className="w-0.5 shrink-0 self-stretch bg-white/10" />
             <div className="w-full max-w-[1200px]">
@@ -21,7 +28,8 @@ export default function ProfileHeader( {bannerUrl, profilePhotoUrl, name, bio} :
                         src={bannerUrl ?? './ImagemPreta.png'}
                         className="w-full aspect-[3/1] object-cover shadow-lg shadow-black/30 [grid-area:1/1]"
                     />
-                    <SettingsButton />
+                    <SettingsButton onClick={() => setModalProfileOpen(true)}/>
+                    <ChangeProfile isOpen={profileModalOpen} onClose={() => setModalProfileOpen(false)} />
                 </div>
 
                 
@@ -51,6 +59,7 @@ export default function ProfileHeader( {bannerUrl, profilePhotoUrl, name, bio} :
                 <div className="h-0.5 w-full bg-white/10 mt-5" />
             </div>
             <div className="w-0.5 shrink-0 self-stretch bg-white/10" />
+
         </div>
     );
 }

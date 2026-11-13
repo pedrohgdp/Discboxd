@@ -1,3 +1,7 @@
+"use client"
+
+import { motion, scale } from "motion/react" 
+
 type publicationProps = {
     imgAlbumSource: string
     text: string
@@ -9,7 +13,7 @@ type publicationProps = {
 
 export default function Publication({ imgAlbumSource, text, albumName, note, imgUser, userName }: publicationProps) {
     return (
-        <article className="w-[95%] max-w-[1200px] mx-auto h-auto flex flex-col mt-5 border border-white/10 rounded-sm shadow-lg shadow-black/10">
+        <motion.article className="w-full max-w-[1200px] mx-auto h-auto flex flex-col mt-5 border border-white/10 rounded-sm shadow-lg shadow-black/10" whileHover={{scale: 1.05}}>
             
             {/* Cabeçalho do usuário */}
             <div className="pl-2 flex items-center">
@@ -41,6 +45,6 @@ export default function Publication({ imgAlbumSource, text, albumName, note, img
                 </div>
             </div>
         
-        </article>
+        </motion.article>
     );
 }

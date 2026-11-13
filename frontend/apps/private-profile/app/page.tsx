@@ -1,7 +1,6 @@
 import ProfileHeader from "@/Components/ProfileHeader";
 import Publication from "@discboxd/components/Publication";
 import TopBar from "@discboxd/components/TopBar";
-import Crop from "@/Components/Crop";
 
 export default function PrivateProfile() {
   return (

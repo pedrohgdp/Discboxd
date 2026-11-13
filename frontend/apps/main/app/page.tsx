@@ -9,10 +9,10 @@ export default function Home() {
         <TopBar isMain={true} isPrivateProfile={false }/>
       </div>
 
-      <div className="flex min-h-screen pt-[60px]">
+      <div className="flex w-full min-h-screen pt-[60px]">
 
-        <main className="flex flex-1 flex-col">
-          <div className="pt-1 pl-1">
+        <main className="flex flex-1 w-full min-w-0 flex-col">
+          <div className="pt-1 px-4 pl-1">
 
             <Publication
               imgAlbumSource="/ba.jpg"
