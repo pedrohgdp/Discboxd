@@ -1,23 +1,19 @@
 import { useState, useMemo, type SubmitEvent  } from 'react'
-import { useRouter, useSearchParams } from 'next/navigation'
 
 type FormState = {
   username: string
-  email: string
   password: string
   confirmPassword: string
 }
 
 type TouchedState = {
   username: boolean
-  email: boolean
   password: boolean
   confirmPassword: boolean
 }
 
 type FieldErrors = {
   username?: string
-  email?: string
   password?: string
   confirmPassword?: string
 }
@@ -28,14 +24,12 @@ export function useChanges() {
 
     const [form, setForm] = useState<FormState>({
         username: '',
-        email: '',
         password: '',
         confirmPassword: '',
     })
 
     const [touched, setTouched] = useState<TouchedState>({
         username: false,
-        email: false,
         password: false,
         confirmPassword: false,
     })
@@ -51,13 +45,6 @@ export function useChanges() {
             errs.username = 'The username have to start with @.'
         } else if (/\s/g.test(form.username)){
             errs.username = 'Username cannot contain spaces!'
-        }
-
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-        if (!form.email.trim()) {
-        errs.email = 'O e-mail é obrigatório.'
-        } else if (!emailRegex.test(form.email)) {
-        errs.email = 'Insira um e-mail válido (ex: voce@email.com).'
         }
 
         const pwdRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/
@@ -97,8 +84,7 @@ export function useChanges() {
 
         // Marca todos os campos como tocados para exibir todos os erros de uma vez
         setTouched({
-            name: true,
-            email: true,
+            username: true,
             password: true,
             confirmPassword: true,
         })
