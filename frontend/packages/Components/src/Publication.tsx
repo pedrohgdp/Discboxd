@@ -9,10 +9,10 @@ type publicationProps = {
 
 export default function Publication({ imgAlbumSource, text, albumName, note, imgUser, userName }: publicationProps) {
     return (
-        <article className="w-full h-auto flex flex-col max-w-2xl mt-5 p-4 border border-white/10 rounded-sm shadow-lg shadow-black/10">
+        <article className="w-[95%] max-w-[1200px] mx-auto h-auto flex flex-col mt-5 border border-white/10 rounded-sm shadow-lg shadow-black/10">
             
             {/* Cabeçalho do usuário */}
-            <div className="flex items-center">
+            <div className="pl-2 flex items-center">
                 <img src={imgUser} className="rounded-full w-8 h-8 m-2 object-cover" alt="User Photo" />
                 <p className="text-[14px] m-0.5">{userName}</p>
                 <p className="text-[20px] text-white/60 m-0.5">·</p>
