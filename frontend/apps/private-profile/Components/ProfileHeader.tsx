@@ -1,3 +1,4 @@
+import SettingsButton from "@discboxd/components/settingsButton"
 
 type ProfileProps = {
     bannerUrl?: string
@@ -15,12 +16,15 @@ export default function ProfileHeader( {bannerUrl, profilePhotoUrl, name, bio} :
                 <div className="h-0.5 w-full bg-white/10" />
 
                 {/* Banner */}
-                <div className="w-full">
+                <div className="w-full grid">
                     <img
                         src={bannerUrl ?? './ImagemPreta.png'}
-                        className="w-full aspect-[3/1] object-cover shadow-lg shadow-black/30"
+                        className="w-full aspect-[3/1] object-cover shadow-lg shadow-black/30 [grid-area:1/1]"
                     />
+                    <SettingsButton />
                 </div>
+
+                
 
                 {/* Perfil */}
                 <div className="flex items-center gap-4 px-5">
