@@ -8,17 +8,17 @@ type publicationProps = {
     albumName: string
     note: number
     imgUser: string
-    userName: string
+    username: string
 }
 
-export default function Publication({ imgAlbumSource, text, albumName, note, imgUser, userName }: publicationProps) {
+export default function Publication({ imgAlbumSource, text, albumName, note, imgUser, username }: publicationProps) {
     return (
         <motion.article className="w-full max-w-[1200px] mx-auto h-auto flex flex-col mt-5 border border-white/10 rounded-sm shadow-lg shadow-black/10" whileHover={{scale: 1.05}}>
             
             {/* Cabeçalho do usuário */}
             <div className="pl-2 flex items-center">
                 <img src={imgUser} className="rounded-full w-8 h-8 m-2 object-cover" alt="User Photo" />
-                <p className="text-[14px] m-0.5">{userName}</p>
+                <p className="text-[16px] text-white/60 m-0.5">@{username}</p>
                 <p className="text-[20px] text-white/60 m-0.5">·</p>
                 <p className="text-[14px] text-white/60 m-0.5">30/10/2026</p>
             </div>

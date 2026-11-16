@@ -9,9 +9,10 @@ type ProfileProps = {
     profilePhotoUrl?: string
     name: string
     bio: string
+    username: string
 }
 
-export default function ProfileHeader( {bannerUrl, profilePhotoUrl, name, bio} : ProfileProps){
+export default function ProfileHeader( {bannerUrl, profilePhotoUrl, name, bio, username} : ProfileProps){
     const [profileModalOpen, setModalProfileOpen] = useState(false);
 
     return (
@@ -52,7 +53,10 @@ export default function ProfileHeader( {bannerUrl, profilePhotoUrl, name, bio} :
 
                 {/*Nome e bio*/}
                 <div className="flex flex-col pt-2 pl-5">
-                    <h2>{name}</h2>
+                    <div className="flex items-center gap-2">
+                        <h2 className="text-[50px] leading-none">{name}</h2>
+                        <p className="text-white/30 text-[20px] leading-none pt-2">@{username}</p>
+                    </div>
                     <p>{bio}</p>
                 </div>
                             
